@@ -58,7 +58,7 @@ export default class Game{
 
             case GameState.HELP:
                  if(sInput.toLowerCase().match("help")){
-                    sReply = "You have two option to MOVE or IGNORE"
+                    sReply = "He can take help to save his life. so he has an option to MOVE or IGNORE and go back to the car"
                     this.stateCur = GameState.MOVE;
     
                  }else{
@@ -82,7 +82,7 @@ export default class Game{
 
             case GameState.ROOM:
                 if(sInput.toLowerCase().match("enter")){
-                    sReply = "There he see the mysterius blood stains. He hasan option to SEE the blood stains or MOVE back "
+                    sReply = "There he see the mysterius blood stains. He has an option to SEE the blood stains or MOVE back "
                     this.stateCur = GameState.SEE;
           
                 }else{
@@ -105,7 +105,7 @@ export default class Game{
 
             case GameState.OPEN:
                 if(sInput.toLowerCase().match("on")){
-                    sReply = "The lights were not turning on he started hearing the sounds. He can MOVE towards the sounds or try to OPEN the door again   "
+                    sReply = "The lights were not turning on he started hearing the sounds. He can move FORWARD the sounds or try to OPEN the door again   "
                     this.stateCur = GameState.FORWARD;
           
                 }else{
