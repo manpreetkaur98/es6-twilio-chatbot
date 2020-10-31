@@ -103,7 +103,7 @@ export default class Game{
                 }
             break;
 
-            case GameState.ON:
+            case GameState.OPEN:
                 if(sInput.toLowerCase().match("on")){
                     sReply = "The lights were not turning on he started hearing the sounds. He can MOVE towards the sounds or try to OPEN the door again   "
                     this.stateCur = GameState.FORWARD;
