@@ -4,7 +4,8 @@ const GameState = Object.freeze({
     WAIT: Symbol("wait"),
     MANSION: Symbol("mansion"),
     BUTLER: Symbol("butler"),
-    TOAST: Symbol("help")
+    TOAST: Symbol("help"),
+    MOVE: Symbol("move")
 });
 
 export default class Game{
@@ -24,7 +25,7 @@ export default class Game{
                 if(sInput.toLowerCase().match("wait")){
                     sReply = "The road is deserted. After 1 hour there is still no help. Do you keep WAITING or do you GO to the house?";
                 }else{
-                    sReply ="On the door is a large knocker. Do you KNOCK or RUN back to your car to wait?";
+                    sReply ="On the door is a large knocker. Do you KNOCK or run back to your car to wait?";
                     this.stateCur = GameState.MANSION;
                 }
                 break;
@@ -45,20 +46,20 @@ export default class Game{
                     this.stateCur = GameState.FLAT;
 
                 }else{
-                    sReply = "You seem to have walked in to a party. The host offers for help. Do you take the HELP or ask to CALL a tow truck?";
+                    sReply = "You seem to have walked in to a party. The host offers for help. Do you take the HELP or IGNORE?";
                     this.stateCur = GameState.HELP;
     
                 }
                 break;
 
-            case GameState.FLAT:
+            case GameState.HELP:
                  if(sInput.toLowerCase().match("help")){
                     sReply = "You have two option to take HELP or IGNORE"
-                    this.stateCur = GameState.HELP;
+                    this.stateCur = GameState.MOVE;
     
                  }else{
                     sReply = "The road is deserted. After 1 hour there is still no help. Do you keep WAITING or do you GO to the house?";
-                    this.stateCur = GameState.TOAST;
+                    this.stateCur = GameState.FLAT;
         
                 }
                 break;
