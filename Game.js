@@ -62,7 +62,7 @@ export default class Game{
                     this.stateCur = GameState.MOVE;
     
                  }else{
-                    sReply = "The road is deserted. After 1 hour there is still no help. Do you keep WAITING or do you GO to the house?";
+                    sReply = "if he ignore he go back to the car . After 1 hour there is still no help. Do you keep WAITING or do you GO to the house?";
                     this.stateCur = GameState.FLAT;
         
                 }
@@ -74,7 +74,7 @@ export default class Game{
                     this.stateCur = GameState.ROOM;
        
                 }else{
-                     sReply = "The road is deserted. After 1 hour there is still no help. Do you keep WAITING or do you GO to the house?";
+                     sReply = "He run back  After 1 hour there is still no help. Do you keep WAITING or do you GO to the house?";
                     this.stateCur = GameState.FLAT;
            
                 }
@@ -86,18 +86,18 @@ export default class Game{
                     this.stateCur = GameState.SEE;
           
                 }else{
-                    sReply = "The road is deserted. After 1 hour there is still no help. Do you keep WAITING or do you GO to the house?";
+                    sReply = "he moved back to the road. After 1 hour there is still no help. Do you keep WAITING or do you GO to the house?";
                     this.stateCur = GameState.FLAT;
               
                 }
             break;
             case GameState.SEE:
                 if(sInput.toLowerCase().match("see")){
-                    sReply = "Then suddenly the door close and lights get off. He try to turn ON the light or Open the door  "
+                    sReply = "Then suddenly the door close and lights get off. He try to turn ON the light or Open the door and run out "
                     this.stateCur = GameState.OPEN;
           
                 }else{
-                    sReply = "The road is deserted. After 1 hour there is still no help. Do you keep WAITING or do you GO to the house?";
+                    sReply = "after opening he move back to the car. Athe fter 1 hour there is still no help. Do you keep WAITING or do you GO to the house?";
                     this.stateCur = GameState.FLAT;
               
                 }
@@ -105,7 +105,7 @@ export default class Game{
 
             case GameState.OPEN:
                 if(sInput.toLowerCase().match("on")){
-                    sReply = "The lights were not turning on he started hearing the sounds. He can move FORWARD the sounds or try to OPEN the door again   "
+                    sReply = "The lights were not turning on he started hearing the sounds. He can move FORWARD the sounds or try to OPEN the door    "
                     this.stateCur = GameState.FORWARD;
           
                 }else{
@@ -121,7 +121,7 @@ export default class Game{
                     this.stateCur = GameState.TOAST;
           
                 }else{
-                    sReply = "The road is deserted. After 1 hour there is still no help. Do you keep WAITING or do you GO to the house?";
+                    sReply = "He reject the toast and move back to the car After 1 hour there is still no help. Do you keep WAITING or do you GO to the house?";
                     this.stateCur = GameState.FLAT;
               
                 }
