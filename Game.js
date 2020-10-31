@@ -5,7 +5,8 @@ const GameState = Object.freeze({
     MANSION: Symbol("mansion"),
     BUTLER: Symbol("butler"),
     TOAST: Symbol("help"),
-    MOVE: Symbol("move")
+    MOVE: Symbol("move"),
+    ROOM: Symbol("room")
 });
 
 export default class Game{
@@ -54,7 +55,7 @@ export default class Game{
 
             case GameState.HELP:
                  if(sInput.toLowerCase().match("help")){
-                    sReply = "You have two option to take HELP or IGNORE"
+                    sReply = "You have two option to TAKE HELP or IGNORE"
                     this.stateCur = GameState.MOVE;
     
                  }else{
@@ -63,6 +64,20 @@ export default class Game{
         
                 }
                 break;
+
+            case GameState.MOVE:
+                 if(sInput.toLowerCase().match("move")){
+                     sReply = "Enter the scary room or Run Back"
+                    this.stateCur = GameState.ROOM;
+       
+                }else{
+                     sReply = "The road is deserted. After 1 hour there is still no help. Do you keep WAITING or do you GO to the house?";
+                    this.stateCur = GameState.FLAT;
+           
+                }
+                break;
+
+            
 
             case GameState.TOAST:
                 if(sInput.toLowerCase().match("toast")){
