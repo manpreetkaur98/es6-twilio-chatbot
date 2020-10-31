@@ -50,7 +50,7 @@ export default class Game{
                     this.stateCur = GameState.FLAT;
 
                 }else{
-                    sReply = "You seem to have walked in to a party. The host offers for help. Do you take the HELP or IGNORE?";
+                    sReply = "You seem to have walked in to a party. The host offers for help. Do you take the HELP or ignore?";
                     this.stateCur = GameState.HELP;
     
                 }
@@ -58,7 +58,7 @@ export default class Game{
 
             case GameState.HELP:
                  if(sInput.toLowerCase().match("help")){
-                    sReply = "He can take help to save his life. so he has an option to MOVE or IGNORE and go back to the car"
+                    sReply = "He can take help to save his life. so he has an option to MOVE or go back to the car"
                     this.stateCur = GameState.MOVE;
     
                  }else{
@@ -70,7 +70,7 @@ export default class Game{
 
             case GameState.MOVE:
                  if(sInput.toLowerCase().match("move")){
-                     sReply = "ENTER the scary room or RUN BACK"
+                     sReply = "ENTER the scary room or run back to the car"
                     this.stateCur = GameState.ROOM;
        
                 }else{
@@ -82,7 +82,7 @@ export default class Game{
 
             case GameState.ROOM:
                 if(sInput.toLowerCase().match("enter")){
-                    sReply = "There he see the mysterius blood stains. He has an option to SEE the blood stains or MOVE back "
+                    sReply = "There he see the mysterius blood stains. He has an option to SEE the blood stains or move back "
                     this.stateCur = GameState.SEE;
           
                 }else{
@@ -105,7 +105,7 @@ export default class Game{
 
             case GameState.OPEN:
                 if(sInput.toLowerCase().match("on")){
-                    sReply = "The lights were not turning on he started hearing the sounds. He can move FORWARD the sounds or try to OPEN the door    "
+                    sReply = "The lights were not turning on he started hearing the sounds. He can move FORWARD the sounds or move back to the car    "
                     this.stateCur = GameState.FORWARD;
           
                 }else{
