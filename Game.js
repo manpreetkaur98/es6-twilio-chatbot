@@ -4,7 +4,7 @@ const GameState = Object.freeze({
     WAIT: Symbol("wait"),
     MANSION: Symbol("mansion"),
     BUTLER: Symbol("butler"),
-    TOAST: Symbol("toast")
+    TOAST: Symbol("help")
 });
 
 export default class Game{
@@ -22,33 +22,47 @@ export default class Game{
                 break;
             case GameState.FLAT:
                 if(sInput.toLowerCase().match("wait")){
-                    sReply = "The road is deserted. After 1 hour there is still no help. Do you keep Waiting or do you go to the house?";
+                    sReply = "The road is deserted. After 1 hour there is still no help. Do you keep WAITING or do you GO to the house?";
                 }else{
-                    sReply ="On the door is a large knocker. Do you knock or run back to your car to wait?";
+                    sReply ="On the door is a large knocker. Do you KNOCK or RUN back to your car to wait?";
                     this.stateCur = GameState.MANSION;
                 }
                 break;
             case GameState.MANSION:
                 if(sInput.toLowerCase().match("knock")){
-                    sReply = "The door opens and you are greeted by a hunch-back butler. He asks you to come in. Do you go in or run back to the car?"
+                    sReply = "The door opens and you are greeted by a hunch-back butler. He asks you to come in. Do you GO in or RUN back to the car?"
                     this.stateCur = GameState.BUTLER;
                 }else{
-                    sReply = "The road is deserted. After 1 hour there is still no help. Do you keep Waiting or do you go to the house?";
+                    sReply = "The road is deserted. After 1 hour there is still no help. Do you keep WAITING or do you GO to the house?";
                     this.stateCur = GameState.FLAT;
 
                 }
                 break;
+
             case GameState.BUTLER:
                 if(sInput.toLowerCase().match("run")){
-                    sReply = "The road is deserted. After 1 hour there is still no help. Do you keep Waiting or do you go to the house?";
+                    sReply = "The road is deserted. After 1 hour there is still no help. Do you keep WAITING or do you GO to the house?";
                     this.stateCur = GameState.FLAT;
 
                 }else{
-                    sReply = "You seem to have walked in to a party. The host offers you some toast. Do you take the toast or ask to call a tow truck?";
-                    this.stateCur = GameState.TOAST;
+                    sReply = "You seem to have walked in to a party. The host offers for help. Do you take the HELP or ask to CALL a tow truck?";
+                    this.stateCur = GameState.HELP;
     
                 }
                 break;
+
+            case GameState.FLAT:
+                 if(sInput.toLowerCase().match("help")){
+                    sReply = "You have two option to take HELP or IGNORE"
+                    this.stateCur = GameState.HELP;
+    
+                 }else{
+                    sReply = "The road is deserted. After 1 hour there is still no help. Do you keep WAITING or do you GO to the house?";
+                    this.stateCur = GameState.TOAST;
+        
+                }
+                break;
+
             case GameState.TOAST:
                 if(sInput.toLowerCase().match("toast")){
                     sReply = "you enter a new world of adventure ... game over";
