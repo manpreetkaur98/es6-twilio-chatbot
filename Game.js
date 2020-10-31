@@ -7,7 +7,8 @@ const GameState = Object.freeze({
     TOAST: Symbol("help"),
     MOVE: Symbol("move"),
     ROOM: Symbol("room"),
-    SEE:Symbol("see")
+    SEE:Symbol("see"),
+    OPEN:Symbol("open")
 });
 
 export default class Game{
@@ -88,8 +89,18 @@ export default class Game{
                     this.stateCur = GameState.FLAT;
               
                 }
-                break;
-
+            break;
+            case GameState.SEE:
+                if(sInput.toLowerCase().match("see")){
+                    sReply = "Then suddenly the door close and lights get off. He try to turn ON the light or Open the door  "
+                    this.stateCur = GameState.OPEN;
+          
+                }else{
+                    sReply = "The road is deserted. After 1 hour there is still no help. Do you keep WAITING or do you GO to the house?";
+                    this.stateCur = GameState.FLAT;
+              
+                }
+            break;
             
 
             case GameState.TOAST:
