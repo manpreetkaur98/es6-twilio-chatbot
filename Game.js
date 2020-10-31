@@ -55,7 +55,7 @@ export default class Game{
 
             case GameState.HELP:
                  if(sInput.toLowerCase().match("help")){
-                    sReply = "You have two option to TAKE HELP or IGNORE"
+                    sReply = "You have two option to MOVE or IGNORE"
                     this.stateCur = GameState.MOVE;
     
                  }else{
